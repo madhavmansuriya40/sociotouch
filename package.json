@@ -1,9 +1,9 @@
 {
-  "name": "sociotouch",
+  "name": "shoping-cart",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node index.js"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "async": "^2.6.2",
