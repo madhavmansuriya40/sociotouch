@@ -1,0 +1,414 @@
+{{> header}}
+
+<link href="/stylesheets/post_slider.css" rel="stylesheet">
+
+<section class="cover-sec">
+    {{#each search_user_info}}
+    {{#if this.search_user_info}}
+    <img src="{{this.user_cover_path}}" alt="">
+    {{else}}
+    <img src="/images/user_cover/user_cover.jpg" alt="">
+    {{/if}}
+    {{/each}}
+</section>
+
+
+<main>
+    <div class="main-section">
+        <div class="container">
+            <div class="main-section-data">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="main-left-sidebar">
+                            <div class="user_profile">
+                                {{#each search_user_info}}
+                                <div class="user-pro-img">
+                                    <img src="{{this.user_img_path}}" alt="" style="border-radius: 50%" width="200"
+                                         height="200">
+                                </div><!--user-pro-img end-->
+                                {{/each}}
+                                <div class="user_pro_status">
+                                    <ul class="flw-status">
+                                        <div style="height: 10px;background: white"></div>
+                                    </ul>
+                                    <ul class="flw-status">
+                                        <li>
+                                            <span style="color: teal;">Friends</span>
+                                            <b style="color: orange">34</b>
+                                        </li>
+                                        <li>
+                                            <span style="color: teal;">Mutual's</span>
+                                            <b style="color: purple;">155</b>
+                                        </li>
+                                    </ul>
+                                </div><!--user_pro_status end-->
+
+                            </div><!--user_profile end-->
+                            <div class="suggestions full-width">
+                                <div class="sd-title">
+                                    <h3>Suggestions</h3>
+                                    <i class="la la-ellipsis-v"></i>
+                                </div><!--sd-title end-->
+                                <div class="suggestions-list">
+                                    <div class="col-sm-12 text-center align-content-center">
+                                        <center><img src="/images/loader/con2.gif" width="240"/></center>
+                                        <br>
+                                        <div style="font-size: 20px" class="color-orange">Part Under Construction</div>
+                                    </div>
+                                </div><!--suggestions-list end-->
+                            </div><!--suggestions end-->
+                        </div><!--main-left-sidebar end-->
+                    </div>
+                    <style>
+                        .div_1 {
+
+                            background: #1b1e21;
+                            position: relative;
+                            opacity: 0.5;
+                        }
+
+                        .div_2 {
+                            /*position: absolute;*/
+                            /*height: 176px;*/
+                            /*width: 176px;*/
+                        }
+
+                        .img_col-sm-4 {
+                            -ms-flex: 0 0 33.333333%;
+                            flex: 0 0 33.333333%;
+                            max-width: 33.333333%;
+                            height: 176px;
+                            width: 176px;
+                            max-height: 33.333333%;
+                        }
+                    </style>
+                    <div class="col-lg-6">
+                        <div class="main-ws-sec">
+                            <div class="user-tab-sec">
+                                <span style="font-size: 2.2em">{{#each search_user_info}}
+                                    {{this.user_fname}} {{this.user_lname}} <span style="font-size: 0.5em"
+                                                                                  class="color-teal"> <span
+                                            class="color-orange">a.k.a</span> ({{this.user_uname}})</span>
+                                    {{/each}}
+                                </span>
+                                <div class="star-descp">
+                                    <span>CEO at BLACKHOSTS_STUDIO</span>
+                                </div><!--star-descp end-->
+                                <div class="tab-feed">
+                                    <ul>
+                                        <li data-tab="feed-dd" class="active">
+                                            <a title="">
+                                                <img src="/home_assets/img/ic1.png" alt="">
+                                                <span>Feeds</span>
+                                            </a>
+                                        </li>
+                                        <li data-tab="info-dd">
+                                            <a title="">
+                                                <img src="/home_assets/img/ic2.png" alt="">
+                                                <span>About</span>
+                                            </a>
+                                        </li>
+                                        <li data-tab="portfolio-dd" id="search_sr_all_post">
+                                            <a title="">
+                                                <img src="/home_assets/img/ic3.png" alt="">
+                                                <span>Photos</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div><!-- tab-feed end-->
+                            </div><!--user-tab-sec end-->
+                            <div class="product-feed-tab current" id="feed-dd">
+                                <div class="col-sm-12" id="searched_user_post_loader"
+                                     style="background: #292929;overflow: hidden;border-bottom-right-radius: 80px;border-top-left-radius: 80px;box-shadow: 3px 3px 15px #3495de">
+                                    <img src="/images/loader/gathering_poat.gif" style="width: 100%">
+                                    <div class="text-center" style="color: #4facde"><h2 style="font-size: 2.3em">
+                                        Gathering Posts!</h2><br>
+                                        <h3 style="font-size: 1.5em" class="color-orange">Wait a movement</h3><br></div>
+                                </div>
+                                <div id="searched_user_post_display"></div>
+                            </div><!--product-feed-tab end-->
+                            <div class="product-feed-tab" id="info-dd">
+                                <div class="user-profile-ov">
+                                    <h3>Overview</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor aliquam
+                                        felis, nec condimentum ipsum commodo id. Vivamus sit amet augue nec urna
+                                        efficitur tincidunt. Vivamus consectetur aliquam lectus commodo viverra. Nunc eu
+                                        augue nec arcu efficitur faucibus. Aliquam accumsan ac magna convallis bibendum.
+                                        Quisque laoreet augue eget augue fermentum scelerisque. Vivamus dignissim mollis
+                                        est dictum blandit. Nam porta auctor neque sed congue. Nullam rutrum eget ex at
+                                        maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget
+                                        vestibulum lorem.</p>
+                                </div><!--user-profile-ov end-->
+                                <div class="user-profile-ov st2">
+                                    <h3>Experience</h3>
+                                    <h4>Web designer</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor aliquam
+                                        felis, nec condimentum ipsum commodo id. Vivamus sit amet augue nec urna
+                                        efficitur tincidunt. Vivamus consectetur aliquam lectus commodo viverra. </p>
+                                    <h4>UI / UX Designer</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor aliquam
+                                        felis, nec condimentum ipsum commodo id.</p>
+                                    <h4>PHP developer</h4>
+                                    <p class="no-margin">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Quisque tempor aliquam felis, nec condimentum ipsum commodo id. Vivamus sit amet
+                                        augue nec urna efficitur tincidunt. Vivamus consectetur aliquam lectus commodo
+                                        viverra. </p>
+                                </div><!--user-profile-ov end-->
+                                <div class="user-profile-ov">
+                                    <h3>Education</h3>
+                                    <h4>Master of Computer Science</h4>
+                                    <span>2015 - 2017</span>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor aliquam
+                                        felis, nec condimentum ipsum commodo id. Vivamus sit amet augue nec urna
+                                        efficitur tincidunt. Vivamus consectetur aliquam lectus commodo viverra. </p>
+                                </div><!--user-profile-ov end-->
+                                <div class="user-profile-ov">
+                                    <h3>Location</h3>
+                                    <h4>India</h4>
+                                    <p>151/4 BT Chownk, Delhi </p>
+                                </div><!--user-profile-ov end-->
+                                <div class="user-profile-ov">
+                                    <h3>Skills</h3>
+                                    <ul>
+                                        <li><a href="#" title="">HTML</a></li>
+                                        <li><a href="#" title="">PHP</a></li>
+                                        <li><a href="#" title="">CSS</a></li>
+                                        <li><a href="#" title="">Javascript</a></li>
+                                        <li><a href="#" title="">Wordpress</a></li>
+                                        <li><a href="#" title="">Photoshop</a></li>
+                                        <li><a href="#" title="">Illustrator</a></li>
+                                        <li><a href="#" title="">Corel Draw</a></li>
+                                    </ul>
+                                </div><!--user-profile-ov end-->
+                            </div><!--product-feed-tab end-->
+                            <div class="product-feed-tab" id="portfolio-dd">
+                                <div class="portfolio-gallery-sec">
+                                    <h3>Photos</h3>
+                                    <div class="gallery_pf">
+                                        <div class="row" id="searched_user_all_pic">
+                                            <!--<div class="col-lg-4 col-md-4 col-sm-6 col-6">-->
+                                                <!--<div class="gallery_pt">-->
+                                                    <!--<img src="/home_assets/img/pf-img1.jpg" alt="">-->
+                                                    <!--<a href="#" title=""><img-->
+                                                            <!--src="/home_assets/img/all-out.png" alt=""></a>-->
+                                                <!--</div>&lt;!&ndash;gallery_pt end&ndash;&gt;-->
+                                            <!--</div>-->
+                                            <!--<div class="col-lg-4 col-md-4 col-sm-6 col-6">-->
+                                                <!--<div class="gallery_pt">-->
+                                                    <!--<img src="/home_assets/img/pf-img2.jpg" alt="">-->
+                                                    <!--<a href="#" title=""><img-->
+                                                            <!--src="/home_assets/img/all-out.png" alt=""></a>-->
+                                                <!--</div>&lt;!&ndash;gallery_pt end&ndash;&gt;-->
+                                            <!--</div>-->
+                                            <!--<div class="col-lg-4 col-md-4 col-sm-6 col-6">-->
+                                                <!--<div class="gallery_pt">-->
+                                                    <!--<img src="/home_assets/img/pf-img3.jpg" alt="">-->
+                                                    <!--<a href="#" title=""><img-->
+                                                            <!--src="/home_assets/img/all-out.png" alt=""></a>-->
+                                                <!--</div>&lt;!&ndash;gallery_pt end&ndash;&gt;-->
+                                            <!--</div>-->
+                                            <!--<div class="col-lg-4 col-md-4 col-sm-6 col-6">-->
+                                                <!--<div class="gallery_pt">-->
+                                                    <!--<img src="/home_assets/img/pf-img4.jpg" alt="">-->
+                                                    <!--<a href="#" title=""><img-->
+                                                            <!--src="/home_assets/img/all-out.png" alt=""></a>-->
+                                                <!--</div>&lt;!&ndash;gallery_pt end&ndash;&gt;-->
+                                            <!--</div>-->
+                                            <!--<div class="col-lg-4 col-md-4 col-sm-6 col-6">-->
+                                                <!--<div class="gallery_pt">-->
+                                                    <!--<img src="/home_assets/img/pf-img5.jpg" alt="">-->
+                                                    <!--<a href="#" title=""><img-->
+                                                            <!--src="/home_assets/img/all-out.png" alt=""></a>-->
+                                                <!--</div>&lt;!&ndash;gallery_pt end&ndash;&gt;-->
+                                            <!--</div>-->
+                                            <!--<div class="col-lg-4 col-md-4 col-sm-6 col-6">-->
+                                                <!--<div class="gallery_pt">-->
+                                                    <!--<img src="/home_assets/img/pf-img6.jpg" alt="">-->
+                                                    <!--<a href="#" title=""><img-->
+                                                            <!--src="/home_assets/img/all-out.png" alt=""></a>-->
+                                                <!--</div>&lt;!&ndash;gallery_pt end&ndash;&gt;-->
+                                            <!--</div>-->
+                                            <!--<div class="col-lg-4 col-md-4 col-sm-6 col-6">-->
+                                                <!--<div class="gallery_pt">-->
+                                                    <!--<img src="/home_assets/img/pf-img7.jpg" alt="">-->
+                                                    <!--<a href="#" title=""><img-->
+                                                            <!--src="/home_assets/img/all-out.png" alt=""></a>-->
+                                                <!--</div>&lt;!&ndash;gallery_pt end&ndash;&gt;-->
+                                            <!--</div>-->
+                                            <!--<div class="col-lg-4 col-md-4 col-sm-6 col-6">-->
+                                                <!--<div class="gallery_pt">-->
+                                                    <!--<img src="/home_assets/img/pf-img8.jpg" alt="">-->
+                                                    <!--<a href="#" title=""><img-->
+                                                            <!--src="/home_assets/img/all-out.png" alt=""></a>-->
+                                                <!--</div>&lt;!&ndash;gallery_pt end&ndash;&gt;-->
+                                            <!--</div>-->
+                                            <!--<div class="col-lg-4 col-md-4 col-sm-6 col-6">-->
+                                                <!--<div class="gallery_pt">-->
+                                                    <!--<img src="/home_assets/img/pf-img9.jpg" alt="">-->
+                                                    <!--<a href="#" title=""><img-->
+                                                            <!--src="/home_assets/img/all-out.png" alt=""></a>-->
+                                                <!--</div>&lt;!&ndash;gallery_pt end&ndash;&gt;-->
+                                            <!--</div>-->
+                                            <!--<div class="col-lg-4 col-md-4 col-sm-6 col-6">-->
+                                                <!--<div class="gallery_pt">-->
+                                                    <!--<img src="/home_assets/img/pf-img10.jpg" alt="">-->
+                                                    <!--<a href="#" title=""><img-->
+                                                            <!--src="/home_assets/img/all-out.png" alt=""></a>-->
+                                                <!--</div>&lt;!&ndash;gallery_pt end&ndash;&gt;-->
+                                            <!--</div>-->
+                                        </div>
+                                    </div><!--gallery_pf end-->
+                                </div><!--portfolio-gallery-sec end-->
+                            </div><!--product-feed-tab end-->
+                        </div><!--main-ws-sec end-->
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="right-sidebar">
+                            <div class="" style="margin: 5%" id="btn_add_friend_status">
+                                {{#each search_user_info}}
+                                <button class="btn_user_id" id="{{_id}}" title=""><i
+                                        class="fa fa-user-plus"></i> Add Friend
+                                </button>
+                                {{/each}}
+                            </div>
+                            <div class="widget widget-portfolio">
+                                <div class="wd-heady">
+                                    <h3>Photos</h3>
+                                    <img src="/home_assets/img/photo-icon.png" alt="">
+                                </div>
+                                <div class="pf-gallery">
+                                    <ul id="searched_user_imgs">
+
+                                    </ul>
+                                </div><!--pf-gallery end-->
+                            </div><!--widget-portfolio end-->
+                        </div><!--right-sidebar end-->
+                    </div>
+                </div>
+            </div><!-- main-section-data end-->
+        </div>
+    </div>
+</main>
+
+<style>
+    .alert {
+        padding-right: 40px;
+    }
+
+    .alert .close {
+        padding: 10px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .alert-dismissable-group {
+        bottom: 15px;
+        left: 15px;
+        position: fixed;
+    }
+
+    .alert-dismissable {
+        opacity: 0;
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+        transition: opacity .3s ease-out, -webkit-transform .01s linear .3s;
+        transition: opacity .3s ease-out, transform .01s linear .3s;
+        transition: opacity .3s ease-out, transform .01s linear .3s, -webkit-transform .01s linear .3s;
+    }
+
+    .alert-dismissable.is-shown {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        transition: all .3s ease-out;
+    }
+
+</style>
+
+<div class="alert-dismissable-group">
+    <div class="alert alert-success alert-dismissable js-alert bg_col_purple color-white">
+        <p class="color-white"><em class="fa fa-check color-green"></em> Saved</p>
+    </div>
+    <div class="alert alert-danger alert-dismissable js-alert-un bg_col_purple color-white">
+        <p class="color-white"><em class="fas fa-trash color-red"></em> Removed</p>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<script src="/javascripts/manage_search_profile.js"></script>
+<script src="/javascripts/user_posts.js"></script>
+<script src="/javascripts/post_slider.js"></script>
+
+<div id="show_more_media" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg" style="width: 1920px;height: 720px;">
+
+        <!-- Modal content-->
+        <center>
+            <div class="modal-content" style="background-color:rgba(0, 0, 0, 0.5);z-index: 1;position: absolute">
+
+                <div class="modal-body" style="width: 700px;max-width: 700px">
+
+                    <div class="w3-content w3-display-container col-sm-12">
+                        <div id="post_info">
+
+                        </div>
+                        <div id="medial_show_model" class="text-center"
+                             style="max-height: 550px;height: 550px"></div>
+                        <span class="col-sm-12">
+                            <span class="col-sm-6 text-center">
+                                <button class="w3-button w3-purple text-left" onclick="plusDivs(-1)">&#10094;
+                                </button>
+                            </span>
+                            <span class="col-sm-6 text-center">
+                                <button class="w3-button w3-purple text-right" onclick="plusDivs(1)">&#10095;
+                                </button>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </center>
+    </div>
+</div>
+<div id="show_selected_media" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content col-sm-12"
+             style="background-color:rgba(0, 0, 0, 0.5);z-index: 1;position: absolute">
+            <div class="modal-body text-center" style="z-index: 9999">
+                <div class="posts-section">
+                    <div class="post_topbar">
+                        <div class="usy-dt">
+                            {{#each search_user_info}}
+                            <image src="{{this.user_img_path}}" style="width: 60px;height: 60px; border-radius: 50%; border: #88098d solid 2px"/>
+                            <div class="usy-name">
+                                <h3><b style="font-weight: bolder" class="color-white">{{this.user_fname}}
+                                    {{this.user_lname}} </b></h3>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div><!--post-bar end-->
+                </div><!--posts-section end-->
+                <center>
+                    <div id="selected_modal_media" style="max-height: 550px;height: 550px"></div>
+                </center>
+                <div class="col-sm-12" hidden>
+                    <div class="col-sm-6 text-right">
+                        <button class="w3-button w3-purple text-left media_modal_button_left"
+                                onclick="plusDivs(-1)">&#10094;
+                        </button>
+                    </div>
+                    <div class="col-sm-6 text-left">
+                        <button class="w3-button w3-purple text-right media_modal_button_right"
+                                onclick="plusDivs(1)">&#10095;
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Product Showcase</title>
+
+</head>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+<style type="text/css">
+    .mail-body {
+        height: 200px;
+        width: 200px;
+        border-bottom-right-radius: 20%;
+        border-top-left-radius: 20%;
+        box-shadow: 2px 2px 5px black;
+    }
+
+    @media (max-width: 991px) {
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        .mail-body {
+            height: 200px;
+            width: 200px;
+            border-bottom-right-radius: 20%;
+            border-top-left-radius: 20%;
+            box-shadow: 2px 2px 5px black;
+        }
+    }
+
+    @media (max-width: 767px) {
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        .mail-body {
+            height: 200px;
+            width: 200px;
+            border-bottom-right-radius: 20%;
+            border-top-left-radius: 20%;
+            box-shadow: 2px 2px 5px black;
+        }
+    }
+</style>
+<body style="width: 500px;height: auto;background: #0d1f2d;border-bottom-right-radius: 50px;border-top-left-radius: 50px;">
+<center>
+    <div class="mail-body" style="">
+        <div style="padding-top: 5%">
+        <span style="color: white">
+            <img src="https://4.bp.blogspot.com/-XC84jS9CSrY/XNG7-ir_4lI/AAAAAAAAAQU/A8K48Zp314clFws6orAqH4U3xsONbh5XwCLcBGAs/s1600/mail%2Blogo.png"
+                 width="180">
+          <p style="font-size: 1.8em;color: white;">
+            hey!! <b>{{name}}</b>
+          </p>
+          <span style="font-size: 1.3em;color: orange">looks like, <br>you're facing some problem! while login</span>
+          <p style="margin-top: 50px;font-family: monospace;">
+            <span style="font-size: 1.5em;color: #41DE51">
+              as per your request, <br>we have generated an OTP <br>to reset your password.
+            </span>
+          </p>
+          <p style="font-size: 25px;margin-top: 30px">
+            <span style="color: white;">
+              you can set password using this OTP: <br><b
+                    style="color: #59DEDA;text-shadow: 1px 1px 1px #3495DE;"><strike>{{otp}}</strike></b>
+            </span>
+          </p>
+          <p style="font-family: cursive;font-size: 25px;color: yellow">
+            happy socializing ;) with us
+          </p>
+          <p style="bottom: 0px;color: white">
+            <i class="fas fa-globe-asia"></i> visit us <a style="color: violet" href="http://localhost:30000/"> www.sociotouch.com</a>
+          </p>
+        </span>
+        </div>
+    </div>
+</center>
+</body>
+
+</html>

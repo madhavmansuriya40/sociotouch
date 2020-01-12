@@ -1,0 +1,161 @@
+{{> header}}
+
+
+<link href="/stylesheets/emoji_css/emoji.css" rel="stylesheet">
+<section class="messages-page">
+    <div class="container">
+        <div class="col-sm-12">
+            <div class="usr-msg-details">
+                <div class="usr-ms-img">
+                    {{#each user_info}}
+                    <img id="own_img" style="width: 60px;height: 60px; border-radius: 50%; border: #88098d solid 2px"
+                         src="{{this.user_img_path}}" alt="">
+                    {{/each}}
+                </div>
+                <div class="usr-mg-info">
+                    {{#each user_info}}
+                    <h3>{{this.user_fname}} {{this.user_lname}}</h3>
+                    <p style="margin-left: 10px;"><span class="color-orange">a.k.a</span> <span class="color-teal">({{this.user_uname}})</span>
+                    </p>
+                    {{/each}}
+                    <div class="col-sm-12 text-left" style="height: 25px">
+                        <div class="col-sm-2 text-left">
+                            <div style="height: 15px;width: 15px;border-top-left-radius: 30%;border-bottom-right-radius:30%;background: green"></div>
+                        </div>
+                        <div class="col-sm-2">
+                            <span>Online</span>
+                        </div>
+                    </div>
+                </div><!--usr-mg-info end-->
+            </div><!--usr-msg-details end-->
+        </div>
+        <div class="messages-sec">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 no-pdd">
+                    <div class="msgs-list"
+                         style="overflow: hidden;border-width: 5px;border-top: solid 1px;border-right:none;border-color: #0e2549;border-bottom-right-radius: 30%;border-top-left-radius: 30%">
+                        <div class="msg-title">
+                            <div class="col-sm-12">
+                                <div class="col-sm-3 text-right">
+                                    <img src="/images/logo.png" width="50"/>
+                                </div>
+                                <div class="col-sm-5 text-left" style="margin-top: 20px">
+                                    <span style="font-size: 25px;font-family:' Helvetica Neue', Helvetica, Arial,
+                                    sans-serif">Friends</span>
+                                </div>
+                                <div class="col-sm-4 text-right">
+                                    <ul>
+                                        <li><a href="#" title=""><i class="fa fa-ellipsis-v"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><!--msg-title end-->
+                        <div class="messages-list" style="max-height: 400px;overflow: scroll">
+                            <ul id="li_loader_friend_list" class="col-sm-12 text-center">
+                                <li class="text-center">
+                                    <div class="usr-msg-details text-center">
+                                        <img src="/images/loader/no_post.gif" width="250" alt=""/>
+                                    </div><!--usr-msg-details end-->
+                                </li>
+                            </ul>
+                            <ul id="online_user_list">
+
+                            </ul>
+                        </div><!--messages-list end-->
+                    </div><!--msgs-list end-->
+                </div>
+                <div id="div_chat_room_loader" class="col-lg-8 col-md-12 pd-right-none pd-left-none text-center">
+                    <div style="font-family: Fountain Avenue;font-size: 4em;text-shadow: 2px 2px 2px #0e2549"
+                         class="color-orange">
+                        <h1>Let's have some Socialism</h1>
+                    </div>
+                    <div style="margin-top: 50px">
+                        <h3 style="font-size: 2.5em;font-family: Montez;color:#0e2549;text-shadow: 1px 1px 1px #0e2549">
+                            Click on
+                            your friend's profile <br> to start chatting</h3>
+                    </div>
+
+                </div>
+                <div id="div_chat_room" class="col-lg-8 col-md-12 pd-right-none pd-left-none">
+                    <div class="main-conversation-box">
+                        <div class="message-bar-head">
+                            <div class="usr-msg-details">
+                                <div class="usr-ms-img" id="chat_img">
+
+                                </div>
+                                <div class="usr-mg-info" id="User_name">
+
+                                </div><!--usr-mg-info end-->
+                            </div>
+                            <a href="#"
+                               title=""><i class="fa fa-ellipsis-v"></i></a>
+                        </div><!--message-bar-head end-->
+                        <div style="max-height: 400px;overflow: scroll;margin-top: 100px;" class="messages-line mCustomScrollbar _mCS_1">
+                            <div id="msg_box_show" style="max-height: 400px;overflow: scroll"></div>
+                        </div><!--messages-line end-->
+                        <div class="message-send-area">
+                            <div class="">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-10">
+                                        <!--<input type="text" name="message" placeholder="Type a message here">-->
+                                        <p class="lead emoji-picker-container">
+                            <textarea class="form-control textarea-control message_box" rows="5"
+                                      placeholder="Hey!! Add a caption here" data-emojiable="true"
+                                      data-emoji-input="unicode" id="txt_post_caption"></textarea>
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-2" id="btn_send_div">
+
+                                    </div>
+                                </div>
+                                <script>
+                                    $(function () {
+                                        // Initializes and creates emoji set from sprite sheet
+                                        window.emojiPicker = new EmojiPicker({
+                                            emojiable_selector: '[data-emojiable=true]',
+                                            assetsPath: '/images/emoji_img/',
+                                            popupButtonClasses: 'fa fa-smile-o'
+                                        });
+                                        // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+                                        // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+                                        // It can be called as many times as necessary; previously converted input fields will not be converted again
+                                        window.emojiPicker.discover();
+                                    });
+                                </script>
+                                <script>
+                                    // Google Analytics
+                                    (function (i, s, o, g, r, a, m) {
+                                        i['GoogleAnalyticsObject'] = r;
+                                        i[r] = i[r] || function () {
+                                            (i[r].q = i[r].q || []).push(arguments)
+                                        }, i[r].l = 1 * new Date();
+                                        a = s.createElement(o),
+                                            m = s.getElementsByTagName(o)[0];
+                                        a.async = 1;
+                                        a.src = g;
+                                        m.parentNode.insertBefore(a, m)
+                                    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+                                    ga('create', 'UA-49610253-3', 'auto');
+                                    ga('send', 'pageview');
+                                </script>
+
+                            </div>
+                        </div><!--message-send-area end-->
+                    </div><!--main-conversation-box end-->
+                </div>
+            </div>
+        </div><!--messages-sec end-->
+    </div>
+</section><!--messages-page end-->
+
+<script src="/javascripts/emoji_js/config.js"></script>
+<script src="/javascripts/emoji_js/util.js"></script>
+<script src="/javascripts/emoji_js/jquery.emojiarea.js"></script>
+<script src="/javascripts/emoji_js/emoji-picker.js"></script>
+
+<!--<script src="/socket.io/socket.io.js"></script>-->
+<script>
+    // var socket = io();
+</script>
+<script src="/javascripts/manage_chat_friend.js"/>

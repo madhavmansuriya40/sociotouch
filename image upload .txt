@@ -1,0 +1,28 @@
+// const storage = multer.diskStorage({
+//     destination: function (req, file, callback) {
+//         callback(null, 'images/user_images/');
+//     },
+//     filename: function (req, file, callback) {
+        
+//         callback(null, new Date().toString + req.body.txt_uname);
+//     }
+// });
+
+// const fileFilter = function (req, file, callback) {
+//     //check file type
+
+//     if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png' || file.mimetype === 'image/jpg' || file.mimetype === 'image/figs') {
+//         callback(null, true);  // it accept the file
+//     }
+//     else {
+//         callback(new Error('this file not accepted'),false); //reject a file by passing nulls
+//     }
+
+// }
+// const upload = multer({
+//     storage: storage,
+//     limits: {
+//         fileSize: 1024 * 1024 * 5
+//     },
+//     fileFilter: fileFilter
+// });

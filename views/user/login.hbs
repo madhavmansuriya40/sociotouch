@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SocioTouch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/animate.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/login_style.css">s
+    <link rel="stylesheet" type="text/css" href="/stylesheets/sweet-alert.css">
+
+</head>
+
+<body>
+{{#if msg}}
+<div class="text-center alert alert-danger">
+    <span class="text-center" style="font-size: 1.2em"><i class="fa fa-exclamation">  {{msg}}</i></span>
+</div>
+{{/if}}
+
+{{#if suc}}
+<div class="text-center alert alert-success">
+    <span class="text-center" style="font-size: 1.2em"><i class="fa fa-check" style="font-weight: bolder">  {{suc}}</i></span>
+</div>
+{{/if}}
+<div class='box' id="div_login">
+    <div class='box-form'>
+        <div class='box-login-tab'></div>
+        <div class='box-login-title'>
+            &nbsp;&nbsp;
+            <h2 class="fa fa-sign-in" id="lbl_tab_label"> &nbsp;&nbsp;LOGIN</h2>
+        </div>
+
+        <div class='box-login' id="login_box" style="height: auto ;min-height: 320px">
+            <div class='fieldset-body' id='login_form'>
+                <div class="container-fluid">
+                    <div class="text-right" id="lbl_help" style="margin-top: 10px">
+                            <span onclick="openLoginInfo()" style="cursor:pointer;"> New to SocioTouch
+                                <em class="fa fa-question"></em>
+                            </span>
+                    </div>
+                    <a href="">
+                        <div style="text-shadow: 1px 1px 2px black" class="btn">
+                            <img src="/images/logo.png" width="80">
+                            <samp class="title"> SocioTouch</samp>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-12 text-center" id="div_login_img" hidden>
+                    <img src="/images/logo.png" id="img_login_user" class="img_styl"
+                         style="height: 30%;width: 30%;border-bottom-left-radius: 20%;border-top-right-radius: 20%;border: #0f0f0f solid 0px;border: #88098d solid 2.5px;"/>
+                </div>
+                <div class="box-login" id="forgot_pass_box">
+                    <div class="col-sm-12 text-center">
+                        <label style="font-size: 1.5em">Reset your Password</label>
+                    </div>
+                    <div id="mail_sending_loader">
+                        <img src="/images/loader/sending_mail.gif" width="100"/>
+                        <span style="font-size: 1.2em">finding you...</span>
+                    </div>
+                    <div id="div_reset_password_send_otp">
+                        <p class='field' id="div_send_mail_proc">
+                            <label for='user'>Registered Email</label>
+                            <input type='text' class="field" id='txt_forgt_pass_email' name='txt_forgt_pass_email'
+                                   placeholder='Email'/>
+                            <span class="btn btn_login" id="btn_frgt_pass_send_email"
+                                  style="margin-top: 15%;padding: 5%;width: auto">Get an OTP
+                            <i class="fa fa-envelope color-orange"></i></span>
+                        <div id="err_txt_frgt_pass_email"></div>
+                        <button class="text-center btn" id="btn_frgt_pass_back"
+                                style="outline: transparent;background: transparent;font-size: 1.2em"><em
+                                class="fa fa-arrow-left"> Back</em>
+                        </button>
+                    </div>
+                    </p>
+                    <div id="div_otp_check">
+                        <p class='field'>
+                            <label for='user'>Enter OTP</label>
+                            <input type='text' class="field" id='txt_otp'
+                                   name='txt_otp'
+                                   placeholder='Enter OTP'/>
+                        <div id="err_txt_otp"></div>
+                        <span class="btn btn_login" id="btn_check_otp"
+                              style="margin-top: 15%;padding: 5%;width: auto">verify OTP
+                            <i class="fa fa-check color-orange"></i></span>
+                    </div>
+                    <div id="reset_password">
+                        <p class='field'>
+                            <label for='user'>Enter new password</label>
+                            <input type='password' class="field" id='txt_frgt_new_pass' name='txt_frgt_new_pass'
+                                   placeholder='Enter Password'/>
+                        <div id="err_txt_frgt_new_pass"></div>
+                        <p class='field'>
+                            <label for='user'>Re enter password</label>
+                            <input type='password' class="field" id='txt_confi_frgt_new_pass'
+                                   name='txt_confi_frgt_new_pass'
+                                   placeholder='Confirm password'/>
+                        <div id="err_txt_confi_frgt_new_pass"></div>
+                        <span class="btn btn_login" id="btn_change_pass"
+                              style="margin-top: 15%;padding: 5%;width: auto">Change password
+                            <i class="fa fa-key color-orange"></i></span>
+                    </div>
+                </div>
+                <div id="div_login_box">
+                    <p class='field' id="div_login_uname_box">
+                        <label for='user'>User Name</label>
+                        <input type='text' class="field" id='user' name='user' placeholder='Username'/>
+                        <span class="btn btn_login" id="btn_next" style="margin-top: 10%;">Next <i
+                                class="fa fa-arrow-right"></i></span>
+                        <span id="txt_login_uname_error"></span>
+                    </p>
+                    <p class='color-blue' style="font-weight: bolder" id="show_uname" hidden>
+                        <span style="font-size: 2em" id="temp_uname"></span>
+                    </p>
+                    <div id="div_login_pass_box">
+                        <p class='field' id="">
+                            <label for='pass'>PASSWORD</label>
+                            <input type='password' class="field" id='pass' name='pass' placeholder='Password'/>
+                            <span id="txt_login_pass_error"></span><br>
+                            <span class="btn" id="btn_prev"><i
+                                    class="fa fa-arrow-left"></i> Back</span>
+                        </p>
+
+                        <label class='col-sm-12 text-center'>
+                            <button type="submit" class="btn_login" id='login'>
+                                login
+                            </button>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='box-info' style="right: 32px;">
+        <p>
+            <button onclick="closeLoginInfo();" class='b b-info fa fa-close' title='Back to Sign In'></button>
+        <h3>Need Help?</h3>
+        </p>
+        <div class='line-wh'></div>
+        <button onclick="" class='b-support' id="btn_forgot_password" title='Forgot Password?'> Forgot Password?
+        </button>
+        <button onclick="" class='b-support' title='Contact Support'> Contact Support</button>
+        <div class='line-wh'></div>
+        <button id="btn_reg" class='b-cta' title='Sign up now!'> CREATE ACCOUNT</button>
+    </div>
+</div>
+
+<!-- Registration form -->
+
+<div class="text-center" id="div_reg" style="padding: 5%;position: relative">
+    <div class="col-sm-6 reg_box" style="">
+        <img src="images/logo.png" width="80"/>
+        <h1 style="font-family: Forte;text-shadow: 2px 2px 3px #838383">Register self !!</h1>
+        <div class="text-right text-primary" style="font-weight: 400;cursor:pointer;color: #401f4b;font-weight: 600"
+             id="already_reg">
+            Already joined SocioTouch .?
+        </div>
+
+        <div class="col-sm-12" id="div_reg_form_loader">
+            <img src="/images/loader/rub_cube.gif" width="180"/>
+            <p style="font-size: 2.3em;font-weight: bolder">Making your place...<br><span style="color: #0e2549;font-size: 0.8em">at Socio Touch</span></p>
+            <p style="font-size: 1.5em">just a second</p>
+        </div>
+        <div class="col-sm-12" id="div_reg_otp_check">
+            <div class="col-sm-12">
+                <label style="font-size: 1.2em">OTP sent to your entered Email. <em class="fa fa-envelope"></em></label>
+                <input type='text' class="field" id='txt_reg_otp' name='txt_reg_otp'
+                       placeholder='Enter OTP'/>
+                <span id="err_txt_reg_otp"></span>
+                <button class="btn_login" style="width: auto;padding: 2%" id='btn_verify_reg_otp' name="btn_verify_reg_otp">
+                    <em class="fa fa-key color-orange"></em> Verify OTP
+                </button>
+            </div>
+        </div>
+        <div class="col-sm-12" id="div_reg_form">
+            <!--<form method="POST" enctype="multipart/form-data" action="?_csrf={{csrfToken}}">-->
+            <!--<form action="/" method="POST" enctype="multipart/form-data">-->
+            <input type="hidden" id="_csrf" name="_csrf" value="{{ csrfToken }}">
+            <!--<input type="hidden" id="_csrf2" name="_csrf2" value="2">-->
+            <div class="col-sm-12 text-center">
+                <center>
+                    <div id="profile-container" class="g-bg-color--white" style="margin: 5%">
+                        <image id="profileImage" src="/images/default_user/ava.jpg"/>
+                    </div>
+                </center>
+
+                <input type="file" id="imageUpload" name="imageUpload" accept="image/*">
+                <span id="txt_image_error"></span>
+                <div style="font-size: 1em;" class=" col-sm-12">click to change avatar
+                    <br>
+                    <span id="info" class="bg-info text-info"
+                          hidden>use 1:1 square fit image for better results</span>
+                </div>
+                <h4 class="color-violet" style="text-shadow: 1px 1px 0.5px #000">How would you like to be viewed
+                    on SocioTouch</h4>
+                <br>
+                <br>
+            </div>
+            <div>
+                <div class="col-sm-12">
+                    <div class='col-sm-6'>
+                        <label>First Name</label>
+                        <input type='text' class="field" id='txt_fname' name='txt_fname'
+                               placeholder='First Name'/>
+                        <span id="txt_fname_error"></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Last Name</label>
+                        <input type='text' class="field" id='txt_lname' name='txt_lname'
+                               placeholder='Last Name'/>
+                        <span id="txt_lname_error"></span>
+                    </div>
+                </div>
+                <div class="">
+                    <label>User Name</label>
+                    <input type='text' class="field" id='txt_uname' name='txt_uname' placeholder='User Name'/>
+                    <span id="txt_uname_error"></span>
+                </div>
+                <div class="col-sm-12">
+                    <div class='col-sm-6'>
+                        <label>Birth Date</label>
+                        <input type='text' class="field" id='datepicker' name='datepicker'
+                               placeholder='Date of birth'/>
+                        <span id="txt_bdate_error"></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for='pass'>Gender</label>
+                        <select class="field" id="drp_dwn_gen" name="drp_dwn_gen">
+                            <option disabled value="" selected>Gender (M/F/O)</option>
+                            {{#each genders }}
+                            <option value='{{this.id}}'>{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                        <span id="txt_gen_error"></span>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class='col-sm-6'>
+                        <label>Contact No.</label>
+                        <input type='text' class="field" id='txt_cont_no' name='txt_cont_no'
+                               placeholder='Contact No.'/>
+                        <span id="txt_cont_error"></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Emai</label>
+                        <input type='text' class="field" id='txt_email' name='txt_email' placeholder='Email'/>
+                        <span id="txt_email_error"></span>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class='col-sm-6'>
+                        <label>State</label>
+                        <select class="field" id="drp_dwn_state" name="drp_dwn_state">
+                            <option disabled value="" selected>Select State</option>
+                            {{# each tbl_state1 }}
+                            <option value='{{this.id}}'>{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                        <span id="txt_state_error"></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for='pass'>City</label>
+                        <select class="field" id="drp_dwn_citys" name="drp_dwn_citys">
+                            <option disabled value="" selected>Select City</option>
+                        </select>
+                        <span id="txt_city_error"></span>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="col-sm-6">
+                        <label>Password</label>
+                        <input type='password' class="field" id='txt_pass' name='txt_pass'
+                               placeholder='Password'/>
+                        <span id="txt_pass_error"></span>
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Confirm Password</label>
+                        <input type='password' class="field" id='txt_confi_pass' name='txt_confi_pass'
+                               placeholder='Confirm Password'/>
+                        <span id="txt_confipass_error"></span>
+                    </div>
+                </div>
+                <button class="btn_login" id='register' name="register">
+                    Register
+                </button>
+            </div>
+        </div>
+        {{!--
+    </div>
+    --}}
+</div>
+<!-- Registration form -->
+<script>
+    $(document).ready(function () {
+        var startDate = "";
+        $(function () {
+            $('#datepicker').datepicker({
+                format: 'dd/mm/yyyy',
+                endDate: '+0d',
+            });
+            // $("#datepicker").datepicker({dateFormat: 'yy-mm-dd'});
+            var dateobj = new Date();
+            $('#datepicker').datepicker('option', {minDate: new Date(dateobj.getDate()), maxDate: new Date()});
+        });
+    });
+</script>
+
+<script type="text/javascript" src="/javascripts/jquery-1.11.1.min.js"></script>
+<script src='https://cdn.rawgit.com/t4t5/sweetalert/v0.2.0/lib/sweet-alert.min.js'></script>
+<script src="/javascripts/login.js"></script>
+<script src="/javascripts/imgupload.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+
+</html>
