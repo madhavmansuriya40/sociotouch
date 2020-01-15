@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node user"
+    "start": "node user.js"
   },
   "dependencies": {
     "async": "^2.6.2",
