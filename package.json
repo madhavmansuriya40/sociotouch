@@ -42,7 +42,8 @@
   },
   "devDependencies": {
     "handlebars": "^4.5.0"
-  }"scripts": {
+  },
+  "scripts": {
     "start": "node index.js"
   },
 }
