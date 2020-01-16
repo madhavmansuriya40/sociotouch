@@ -15,7 +15,8 @@ var bodyParser = require('body-parser');
 
 
 var app = express();
-mongoose.connect('mongodb://127.0.0.1:27017/SocioTouch' , {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb+srv://madhav:Learnitnow@40@cluster0-s9imw.mongodb.net/test
+' , {useNewUrlParser: true, useUnifiedTopology: true});
 
 
 // view engine setup
