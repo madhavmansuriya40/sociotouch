@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node routes/index.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "async": "^2.6.2",
@@ -42,8 +42,5 @@
   },
   "devDependencies": {
     "handlebars": "^4.5.0"
-  },
-  "scripts": {
-    "start": "node index.js"
-  },
+  }
 }
