@@ -1,7 +1,8 @@
 var Gender = require('../models/tbl_gender');
 var mongoose = require('mongoose');
+require('dotenv').config()
 
-mongoose.connect('mongodb://127.0.0.1:27017/SocioTouch', {useNewUrlParser: true});
+mongoose.connect(process.env.DB_STRING, {useNewUrlParser: true});
 
 var gender = [
     new Gender({

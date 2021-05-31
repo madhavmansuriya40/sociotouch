@@ -230,7 +230,8 @@
                         <select class="field" id="drp_dwn_gen" name="drp_dwn_gen">
                             <option disabled value="" selected>Gender (M/F/O)</option>
                             {{#each genders }}
-                            <option value='{{this.id}}'>{{this.name}}</option>
+                                {{this}}
+                                <option value='{{this.id}}'>{{this.name}}</option>
                             {{/each}}
                         </select>
                         <span id="txt_gen_error"></span>

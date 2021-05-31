@@ -15,6 +15,13 @@ var tbl_user_data = new Schema({
     user_city: {type: String, required: true},
     user_password: {type: String, required: true},
     user_account_status: {type: String, required: true, default: '0'},
-});
+}, {
+    toObject: {
+      virtuals: true,
+    },
+    toJSON: {
+      virtuals: true,
+    },
+  });
 
 module.exports = mongoose.model('tbl_user_data', tbl_user_data);

@@ -16,6 +16,13 @@ var tbl_user_post_data = new Schema({
     user_post_media_delete_status:{type: String},
     user_post_media_hide_status:{type: String},
     user_post_media_update_status:{type: String}
-});
+}, {
+    toObject: {
+      virtuals: true,
+    },
+    toJSON: {
+      virtuals: true,
+    },
+  });
 
 module.exports = mongoose.model('tbl_user_post_data',tbl_user_post_data);

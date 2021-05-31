@@ -6,6 +6,13 @@ var tbl_city_data = new Schema({
     city_id: {type:Number,required:true},
     city_name: {type:String,required:true},
     state_id: {type:Number,required:true}
-});
+}, {
+    toObject: {
+      virtuals: true,
+    },
+    toJSON: {
+      virtuals: true,
+    },
+  });
 
-module.exports = mongoose.model('tbl_city_data',tbl_city_data);
+module.exports = mongoose.model('tbl_city_data', tbl_city_data);

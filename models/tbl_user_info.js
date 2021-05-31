@@ -7,6 +7,13 @@ var tbl_user_info_data = new Schema({
     food:{type:String},
     place:{type:String},
     read:{type:String}
-});
+}, {
+    toObject: {
+      virtuals: true,
+    },
+    toJSON: {
+      virtuals: true,
+    },
+  });
 
 module.exports = mongoose.model('tbl_user_info_data', tbl_user_info_data);

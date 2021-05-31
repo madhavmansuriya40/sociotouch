@@ -8,6 +8,13 @@ var tbl_friend_request_data = new Schema({
     created_at: {type: Date},
     updated_at: {type: Date},
     request_delete_status: {type: Number}
-});
+}, {
+    toObject: {
+      virtuals: true,
+    },
+    toJSON: {
+      virtuals: true,
+    },
+  });
 
 module.exports = mongoose.model('tbl_friend_request_data', tbl_friend_request_data);

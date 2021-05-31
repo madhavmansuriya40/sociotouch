@@ -12,15 +12,25 @@ var expressHbs = require('express-handlebars');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var bodyParser = require('body-parser');
+require('dotenv').config()
 
 
 var app = express();
-mongoose.connect('mongodb+srv://madhav:Learnitnow@40@cluster0-s9imw.mongodb.net/test
-' , {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(process.env.DB_STRING , {useNewUrlParser: true, useUnifiedTopology: true}).then((err) => {
+    if(err) {
+        console.log('success')
+    }
+}).catch(err => {
+    console.log('in catch -->', err)
+});
 
 
 // view engine setup
-app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
+app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs', runtimeOptions: {
+          allowProtoPropertiesByDefault: true,
+          allowProtoMethodsByDefault: true,
+        },
+    }));
 app.set('view engine', '.hbs');
 
 var hbs = require('handlebars');
@@ -62,5 +72,9 @@ app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
 });
+
+app.listen(process.env.PORT || 3100, () => {
+    console.log('up and listening at 3100')
+})
 
 module.exports = app;
