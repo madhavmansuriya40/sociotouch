@@ -12,7 +12,7 @@ var hbs = require('nodemailer-express-handlebars'); // mail package to render ht
 var multer = require('multer'); // to upload files
 var path = require('path'); // tp direct the path to save files
 var fs = require('fs'); // managing file system
-var bcrypt = require('bcrypt');// to encrypt the text
+var bcryptjs = require('bcryptjs');// to encrypt the text
 var csrfProtection = csrf(); // cross site scripting package (for security)
 // router.use(csrfProtection); // handling all routes using csrf protection
 
@@ -266,7 +266,7 @@ router.post('/register', function (req, res, next) {
 
                     tbl_user_data = new tbl_user();
 
-                    let hash = bcrypt.hashSync(req.body.txt_confi_pass, 10);
+                    let hash = bcryptjs.hashSync(req.body.txt_confi_pass, 10);
                     tbl_user_data.user_img_path = file_path;
                     tbl_user_data.user_cover_path = cover_path;
                     tbl_user_data.user_fname = req.body.txt_fname;
@@ -318,7 +318,7 @@ router.post('/login', (req, res, next) => {
                     msg: "Auth Failed 00"
                 });
             }
-            bcrypt.compare(req.body.pass, user[0].user_password, (err, result) => {
+            bcryptjs.compare(req.body.pass, user[0].user_password, (err, result) => {
                 if (err) {
                     return res.status(401).json({
                         msg: "Auth Failed 11"

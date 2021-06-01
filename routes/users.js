@@ -7,7 +7,7 @@ var jwt = require('jsonwebtoken');
 var http = require('http').Server(express);
 var io = require('socket.io')(http);
 
-var bcrypt = require('bcrypt');// to encrypt the text
+var bcryptjs = require('bcryptjs');// to encrypt the text
 var multer = require('multer'); // to upload files
 var path = require('path'); // tp direct the path to save files
 var fs = require('fs'); // managing file system
@@ -1165,7 +1165,7 @@ router.post('/update_info', checkAuth, function (req, res, next) {
 
 router.post('/update_password', function (req, res, next) {
     var email = req.body.email;
-    let hash = bcrypt.hashSync(req.body.updt_pass, 10);
+    let hash = bcryptjs.hashSync(req.body.updt_pass, 10);
     tbl_user.update({'user_email': email}, {'user_password': hash})
         .exec()
         .then(data => {
